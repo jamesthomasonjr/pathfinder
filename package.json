@@ -1,0 +1,68 @@
+{
+    "name": "pathfinder",
+    "displayName": "Pathfinder",
+    "description": "Pathfinder is a more prepared explorer for NERDTree like file browsing",
+    "version": "0.0.1",
+    "publisher": "jamesthomasonjr",
+    "engines": {
+        "vscode": "^1.23.0"
+    },
+    "categories": [
+        "Navigation"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "pathfinder.showExplorerMenu",
+                "title": "Show Explorer Menu",
+                "category": "Pathfinder"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "pathfinder.showExplorerMenu",
+                "key": "m",
+                "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+            },
+            {
+                "_comment": "Enter should no longer rename the file when in the explorer",
+                "key": "enter",
+                "command": "-renameFile",
+                "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+            },
+            {
+                "_comment": "Instead, Enter should open/close directories/files",
+                "key": "enter",
+                "command": "list.select",
+                "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+            },
+            {
+                "_comments": [
+                    "s should open a file in a split view ,but do nothing on a folder",
+                    "@TODO: Look into having 'i' split horizontally, and 's' always splitting vertically"
+                ],
+                "key": "s",
+                "command": "explorer.openToSide",
+                "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceIsFolder && !inputFocus"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "tslint": "^5.8.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
