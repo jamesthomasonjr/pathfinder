@@ -10,7 +10,7 @@ const rename = 'Move the current node';
 const remove = 'Delete the current node';
 const copy = 'Copy the current node';
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(/* context: vscode.ExtensionContext */) {
     // @TODO: Look into allowing "m" fire off the "Move the current node" command, instead of having to type "m<enter>"
     vscode.commands.registerCommand('pathfinder.showExplorerMenu', async () => {
         let action = await vscode.window.showQuickPick([
