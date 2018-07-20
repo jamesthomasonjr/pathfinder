@@ -11,7 +11,7 @@ const remove = 'Delete the current node';
 const copy = 'Copy the current node';
 
 export function activate(/* context: vscode.ExtensionContext */) {
-    // @TODO: Look into allowing "m" fire off the "Move the current node" command, instead of having to type "m<enter>"
+    // @TODO: Look into allowing single characters like "m" to fire off the command instead of having to type "m<enter>"
     vscode.commands.registerCommand('pathfinder.showExplorerMenu', async () => {
         let action = await vscode.window.showQuickPick([
             add_file,
@@ -36,9 +36,9 @@ export function activate(/* context: vscode.ExtensionContext */) {
             vscode.commands.executeCommand('moveFileToTrash');
         }
         if (copy === action) {
-            // @TODO: popup an input to allow user to rename before paste
-            vscode.commands.executeCommand('filesExplorer.copy');
-            vscode.commands.executeCommand('filesExplorer.paste');
+            await vscode.commands.executeCommand('filesExplorer.copy');
+            await vscode.commands.executeCommand('filesExplorer.paste');
+            await vscode.commands.executeCommand('renameFile');
         }
     });
 }
