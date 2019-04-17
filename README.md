@@ -16,7 +16,8 @@ git clone git@github.com:jamesthomasonjr/pathfinder.git
 cd pathfinder
 npm install
 npm run compile
-ln -s . ~/.vscode/extensions/
+# use ~/.vscode-insiders or ~/.vscode-oss as appropriate
+ln -s $(PWD) ~/.vscode/extensions/
 ```
 
 ## Extension Settings
