@@ -11,14 +11,13 @@ This extension aims to bring over NERDTree functionality to ease developer trans
 - Rebinds `<enter>` to open files/directories instead of rename them
 
 ## Installation
+Replace `.vscode` with `.vscode-insiders` or `.vscode-oss` as appropriate
 ```bash
-git clone git@github.com:jamesthomasonjr/pathfinder.git
-cd pathfinder
-npm install
-npm run compile
-# use ~/.vscode-insiders or ~/.vscode-oss as appropriate
+git clone git@github.com:jamesthomasonjr/pathfinder.git & \
+cd pathfinder & \
+npm install & \
+npm run compile & \
 ln -s $(PWD) ~/.vscode/extensions/
-```
 
 ## Extension Settings
 - None yet
