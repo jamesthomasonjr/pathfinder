@@ -18,6 +18,7 @@ cd pathfinder & \
 npm install & \
 npm run compile & \
 ln -s $(PWD) ~/.vscode/extensions/
+```
 
 ## Extension Settings
 - None yet
